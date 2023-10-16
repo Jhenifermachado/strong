@@ -24,7 +24,6 @@ async function login() {
 
 <template>
   <div class="login-container">
-    <h2>Login</h2>
     <form @submit.prevent="login">
       <div class="form-group">
         <label for="email">Email:</label>
@@ -54,17 +53,57 @@ async function login() {
 </template>
 
 <style>
+body, html {
+  height: 100%;
+  overflow: hidden;
+  background-image: url(https://www.actionacademia.com.br/background2.jpg);
+  background-size: cover;
+}
+
 .login-container {
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center; /* Centralize horizontalmente */
+  align-items: center; /* Centralize verticalmente */
+  height: 100%;
+  border-radius: 12px;
   text-align: center;
+  margin-top: 300px;
+}
+
+h2 {
+  color: #fff;
 }
 
 .form-group {
   margin: 10px 0;
+}
+
+.i-form {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  margin: 5px 0;
+  background: rgba(39, 41, 45, 0.5);
+  color: #fff;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #0071e8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #02f1db;
 }
 </style>

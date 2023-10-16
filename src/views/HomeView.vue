@@ -16,16 +16,12 @@ onMounted(() => {
 <template>
   <div>
     <div id="container">
-      <h1>Cadastro de Produtos NoView Gym</h1>
+      <h1>Cadastro de Produtos</h1>
       <form @submit.prevent="adicionarProduto">
         <label for="nome">Nome do Produto:</label>
-        <input v-model="novoProduto.nome" required>
-        <label for="descricao">Descrição:</label>
-        <textarea v-model="novoProduto.descricao" rows="4" required></textarea>
-        <label for="preco">Preço:</label>
-        <input type="number" v-model="novoProduto.preco" step="0.01" required>
-        <label for="estoque">Estoque:</label>
-        <input type="number" v-model="novoProduto.estoque" required>
+        <input v-model="novoProduto.nome" required />
+        <label for="estoque">Estoque</label>
+        <input type="number" v-model="novoProduto.estoque" required />
         <button type="submit">Cadastrar Produto</button>
       </form>
       <div id="produto-list">
@@ -34,11 +30,14 @@ onMounted(() => {
           <li v-for="(produto, index) in produtos" :key="index">
             <div class="produto-info">
               <span class="produto-nome">{{ produto.nome }}</span>
-              <span class="produto-descricao">{{ produto.descricao }}</span>
-              <span class="produto-preco">R$ {{ produto.preco }}</span>
-              <span class="produto-estoque">Estoque: {{ produto.estoque }}</span>
+              <br />
+              <span class="produto-estoque"
+                >Estoque: {{ produto.estoque }}</span
+              >
             </div>
-            <button @click="removerProduto(index)" class="botao-excluir">Excluir</button>
+            <button @click="removerProduto(index)" class="botao-excluir">
+              Excluir
+            </button>
           </li>
         </ul>
       </div>
@@ -54,9 +53,9 @@ export default {
         nome: "",
         descricao: "",
         preco: 0,
-        estoque: 0
+        estoque: 0,
       },
-      produtos: []
+      produtos: [],
     };
   },
   methods: {
@@ -66,13 +65,13 @@ export default {
         nome: "",
         descricao: "",
         preco: 0,
-        estoque: 0
+        estoque: 0,
       };
     },
     removerProduto(index) {
       this.produtos.splice(index, 1);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -81,39 +80,42 @@ export default {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
+  background-color: #b3bdbe; /* Plano de fundo azul claro */
+  border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 form {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px; /* Aumenta a margem inferior para dar mais espaço */
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Aumenta a margem inferior para dar mais espaço */
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 15px;
+  margin-top: 10px;
 }
 
 button {
-  background-color: #007BFF;
+  background-color: #236e81; /* Botões vermelhos */
   color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 3px;
+  border-radius: 15px;
   cursor: pointer;
+  margin-top: 10px; /* Adiciona margem superior para separar do formulário */
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #8f0700; /* Cor de hover para botões vermelhos */
 }
 
 #produto-list ul {
@@ -122,25 +124,44 @@ button:hover {
 }
 
 .produto-info {
-  display: flex;
-  justify-content: space-between;
+  margin: 10px 0; /* Aumenta a margem para separar os produtos */
+  padding: 10px;
+  background-color: #fff; /* Adiciona fundo branco para destacar produtos */
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
 }
 
 .produto-nome {
   font-weight: bold;
-  flex: 1;
+  font-size: 20px; /* Aumenta o tamanho da fonte para o nome do produto */
+  margin-bottom: 10px; /* Adiciona margem inferior para separar o nome do resto das informações */
+  border-radius: 15px;
+}
+
+.produto-estoque {
+  font-size: 16px; /* Define o tamanho da fonte para as informações de estoque */
+  margin-top: 10px; /* Adiciona margem superior para separar as informações de estoque do resto */
+  border-radius: 15px;
 }
 
 .botao-excluir {
-  background-color: #FF3B30;
+  background-color: #236e81; /* Botões vermelhos */
   color: #fff;
   border: none;
   padding: 5px 10px;
-  border-radius: 3px;
+  border-radius: 15px;
   cursor: pointer;
+  margin-top: 10px; /* Adiciona margem superior para separar o botão de exclusão */
 }
 
 .botao-excluir:hover {
-  background-color: #D62D24;
+  background-color: #8f0700; /* Cor de hover para botões vermelhos */
+}
+
+/* Efeito de hover para os produtos */
+.produto-info:hover {
+  transform: scale(1.02);
 }
 </style>

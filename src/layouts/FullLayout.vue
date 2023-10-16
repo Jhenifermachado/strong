@@ -7,7 +7,7 @@ import NavBar from "@/components/NavBar.vue";
   <CarouselComp />
 
   <div class="container text-light" id="filmes">
-    <h2>Adicionar Produtos</h2>
+    <h1></h1>
   </div>
 
   <router-view />
